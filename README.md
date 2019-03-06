@@ -1,5 +1,5 @@
 # nodejs_app
-BONSOIR
+
 * Install dependencies
   
       npm install
