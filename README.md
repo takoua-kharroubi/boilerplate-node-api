@@ -1,5 +1,7 @@
 # nodejs_app
 
+test
+
 * Install dependencies
   
       npm install
