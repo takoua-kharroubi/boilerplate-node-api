@@ -7,8 +7,8 @@ pipeline {
    stage('Init') {
 	steps {
 	 sh 'rm -rf nodejs_app'
-	 git branch: 'master',
-	 url: 'https://github.com/yosr074/nodejs_app.git'
+	 git branch: 'feature/4_publish_node',
+	 url: 'https://github.com/pocteo/nodejs_app.git'
       }
     }
 
