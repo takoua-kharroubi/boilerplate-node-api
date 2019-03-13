@@ -1,5 +1,5 @@
 # nodejs_app
-BONSOIR
+test hook
 * Install dependencies
   
       npm install
