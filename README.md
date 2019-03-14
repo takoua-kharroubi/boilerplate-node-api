@@ -1,6 +1,22 @@
 # nodejs_app
 
- git hook installation :
+Section 1: nodejs_app
+
+Install dependencies
+npm install
+
+Run application
+
+npm start
+Browser http://localhost:3000?name=yosr
+
+You should see `yosr`
+
+Run test
+npm test
+
+Section 2:`make install-git-hooks` command:
+git hook installation :
 1- Add a folder "hooks" into your git repository that you are cloned
 2- Create in this folder file "pre-push" 
 3-in the directory of git repository that is cloned, Create file Makefile
@@ -14,8 +30,6 @@ the goal is to keep your hooks within version control
 5- go to .git/
 ls -lash , you should get this:
  0 lrwxrwxrwx  1 root root   27 Mar 14 06:36 hooks -> /home/yosr/nodejs_app/hooks
-new section for `make install-git-hooks` command
-
 6-Finally, from now after you clone your  repository,  run this command `make install-git-hooks` to install git hooks
 
 
