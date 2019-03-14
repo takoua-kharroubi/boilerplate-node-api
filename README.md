@@ -13,6 +13,7 @@ the goal is to keep your hooks within version control
 5- go to .git/
 ls -lash , you should get this:
  0 lrwxrwxrwx  1 root root   27 Mar 14 06:36 hooks -> /home/yosr/nodejs_app/hooks
+6-Finally, from now after you clone your  repository,  run this command `make install-git-hooks` to install git hooks
 
 
 
