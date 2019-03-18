@@ -1,6 +1,5 @@
 # nodejs_app
 
-test2
 
 * Install dependencies
   
