@@ -1,5 +1,5 @@
 # nodejs_app
-test01
+test_slack
 
 * Install dependencies
   
