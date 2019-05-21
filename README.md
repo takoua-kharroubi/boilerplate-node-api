@@ -33,4 +33,7 @@ ls -lash , you should get this:
 6-Finally, from now after you clone your  repository,  run this command `make install-git-hooks` to install git hooks
 
 
+yosr
+
+
 
