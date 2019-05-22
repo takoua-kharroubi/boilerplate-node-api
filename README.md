@@ -1,4 +1,4 @@
-# nodejs_app yosr kkkk
+# nodejs_app yosr
 Section 1: nodejs_app
 
 Install dependencies
