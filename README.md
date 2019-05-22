@@ -1,4 +1,4 @@
-# nodejs_app  jjjjjjjjjjjjjjj
+# nodejs_app  
 Section 1: nodejs_app
 
 Install dependencies
