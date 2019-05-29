@@ -1,4 +1,4 @@
-node('ci-docker-slave') {
+node('docker-j') {
   stage('docker push') {
     sh 'docker version'
     git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '13_test-pr')
