@@ -8,8 +8,9 @@ environment {
   stages {
     stage('Cloning Git') {
       steps {
-        git (url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '13_test-pr') 
-    
+        git (url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '13_test-pr')
+          
+      }
     }
     stage('Building image') {
       steps{
@@ -30,6 +31,6 @@ environment {
     stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
-      }
+     
     }
   }
