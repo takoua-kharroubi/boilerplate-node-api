@@ -1,36 +1,9 @@
-environment {
-    registry = "pocteo/boilerplate-node-api"
-    registryCredential = 'dockerhub-credentials'
-    dockerImage = ''
+node('docker-j') {
+  stage('docker push') {
+    sh 'docker version'
+    git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: ' 13_test-pr')
+    sh 'docker login -u pocteo -p @hi_pocteo'
+    sh 'ddockerImage = docker.build registry + ":$BUILD_NUMBER" '
+    sh 'docker push pocteo/boilerplate-node-api:":$BUILD_NUMBER" '
   }
-  agent any
-  tools {nodejs "node" }
-  stages {
-    stage('Cloning Git') {
-      steps {
-        git (url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '13_test-pr')
-          
-      }
-    }
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    stage('Deploy Image') {
-      steps{
-         script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
-      }
-    }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-  }
+}
