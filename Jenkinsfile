@@ -1,7 +1,7 @@
 environment {
     registry = "pocteo/boilerplate-node-api"
     registryCredential = 'dockerhub-credentials'
-    dockerImage = ''
+    dockerImage = 'pocteo/boilerplate-node-api'
   }
   agent any
   tools {nodejs "node" }
