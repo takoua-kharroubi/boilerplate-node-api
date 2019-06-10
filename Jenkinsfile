@@ -1,9 +1,37 @@
 node('docker-j') {
-  stage('docker push') {
-    sh 'docker version'
-    git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '12_test_pr')
-    sh 'docker login -u pocteo -p @hi_pocteo'
-    sh 'docker build -t pocteo/boilerplate-node-api:"$ghprbPullId" '
-    sh 'docker push pocteo/boilerplate-node-api + ":$GITHUB_PR_NUMBER" '
-  }
+  
+ 
+  agent any
+  
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git ( url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '${sha1}' )
+      }
+    }
+    stage('connecting') {
+       steps {
+         sh 'docker login -u pocteo -p @hi_pocteo'
+       }
+    }
+    
+    stage('Building image') {
+      steps{
+        script {
+           docker.build pocteo/boilerplate-node-api + ":$ghprbPullId"
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+         script {
+           
+            docker.build pocteo/boilerplate-node-api + ":$ghprbPullId".push()
+         
+        }
+      }
+    }
+   
+  
+}
 }
