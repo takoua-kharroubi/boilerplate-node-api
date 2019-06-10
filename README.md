@@ -5,7 +5,7 @@ Section 1: nodejs_app
 Install dependencies
 npm install
 
-Run application
+Run application.
 
 npm start
 Browser http://localhost:3000?name=walid
