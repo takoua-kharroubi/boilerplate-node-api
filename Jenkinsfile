@@ -3,7 +3,7 @@ node('ci-docker-slave') {
     sh 'docker version'
     #git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: 'webhook_pr')
     #sh 'docker login -u pocteo -p @hi_pocteo'
-    #sh 'docker build -t pocteo/boilerplate-node-api:pr-9999 .'
-    #sh 'docker push pocteo/boilerplate-node-api:pr-9999'
+    #sh 'docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} .'
+    #sh 'docker push pocteo/boilerplate-node-api:pr-${ghprbPullId}'
   }
 }
