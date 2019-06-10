@@ -10,7 +10,7 @@ Run application
 npm start
 Browser http://localhost:3000?name=walid
 
-You should see `yosr`
+You should see `walid`
 
 Run test
 npm test
