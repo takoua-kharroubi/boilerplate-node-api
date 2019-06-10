@@ -1,19 +1,9 @@
-pipeline {
-  agent any
-    
-  tools {nodejs "node"}
-    
-  stages {
-  
-    stage('Install dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'npm test'
-       }
-    }
+node('docker-j') {
+  stage('docker push') {
+    sh 'docker version'
+    git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: 'webhook_pr')
+    sh 'docker login -u pocteo -p @hi_pocteo'
+    sh 'docker build -t pocteo/boilerplate-node-api:pr-15 .'
+    sh 'docker push pocteo/boilerplate-node-api:pr-15'
   }
 }
