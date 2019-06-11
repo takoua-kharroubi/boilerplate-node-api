@@ -1,4 +1,5 @@
 node('ci-docker-slave') {
+  
   stage('docker push') {
     sh 'docker version'
     git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '${ghprbSourceBranch}')
