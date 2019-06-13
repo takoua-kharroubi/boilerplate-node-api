@@ -2,11 +2,11 @@
 
 import groovy.transform.Field
 
-@Field def PULL_REQUEST_ID = "${ghprbPullId}" as String
-@Field def INGRESS = 31901 as Integer
-
 node("ci-docker-slave") {
   stage("docker push") {
+    @Field def PULL_REQUEST_ID = "${ghprbPullId}" as String
+    @Field def INGRESS = 31901 as Integer
+      
     git(url: "https://github.com/pocteo/boilerplate-node-api.git", branch: "${ghprbSourceBranch}")
     sh "docker login -u pocteo -p @_1dockerhub"
     sh "docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} ."
