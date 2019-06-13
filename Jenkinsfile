@@ -1,7 +1,9 @@
 #!/usr/bin/env groovy
 
-def PULL_REQUEST_ID = '${ghprbPullId}'
-def INGRESS = 31901
+import groovy.transform.Field
+
+@Field def PULL_REQUEST_ID = '${ghprbPullId}' as Integer
+@Field def INGRESS = 31901 as Integer
 
 node('ci-docker-slave') {
   stage('docker push') {
