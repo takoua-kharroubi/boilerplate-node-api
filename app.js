@@ -7,7 +7,7 @@ const app = new Koa()
 app.use(logger())
 
 app.use(async ctx => {
-  ctx.body = `Hello ${ctx.query.name}`
+  ctx.body = `Bonjour - i18n_fr ${ctx.query.name}`
 })
 
 app.listen(3000)
