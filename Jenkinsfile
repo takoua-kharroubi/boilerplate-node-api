@@ -5,5 +5,9 @@ node('ci-docker-slave') {
     sh 'docker login -u pocteo -p @_1dockerhub'
     sh 'docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} .'
     sh 'docker push pocteo/boilerplate-node-api:pr-${ghprbPullId}'
+    
+    sh 'export PULL_REQUEST_ID=${ghprbPullId}'
+    sh 'cd /home/pocteo/takoua/deployment-of-nodejs-app'
+    sh 'ansible-playbook playbookapp.yaml'
   }
 }
