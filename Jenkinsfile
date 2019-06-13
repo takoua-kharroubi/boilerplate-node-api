@@ -2,9 +2,7 @@
 
 node("ci-docker-slave") {
   stage("docker push") {
-    environment {
-      NODE_PORT = sh("expr 31000 + 35")
-    }
+    def NODE_PORT = sh("expr 31000 + 35")
     
     git(url: "https://github.com/pocteo/boilerplate-node-api.git", branch: "${ghprbSourceBranch}")
     sh "docker login -u pocteo -p @_1dockerhub"
