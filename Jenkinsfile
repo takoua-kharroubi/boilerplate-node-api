@@ -6,7 +6,10 @@ node('ci-docker-slave') {
     sh 'docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} .'
     sh 'docker push pocteo/boilerplate-node-api:pr-${ghprbPullId}'
     
-    def PULL_REQUEST_ID  = '${ghprbPullId}'
+    def PULL_REQUEST_ID == new Integer('${ghprbPullId}')
+    
+    sh 'echo ${PULL_REQUEST_ID}'
+    
     def INGRESS = (31000 + PULL_REQUEST_ID) as int
       
     sh 'echo ${INGRESS}'
