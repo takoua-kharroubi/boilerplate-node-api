@@ -6,7 +6,7 @@ node('ci-docker-slave') {
     sh 'docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} .'
     sh 'docker push pocteo/boilerplate-node-api:pr-${ghprbPullId}'
     
-    def INGRESS = 31000 + ${ghprbPullId}
+    def INGRESS = 31000 + '${ghprbPullId}'
     
     sh 'export PULL_REQUEST_ID=${ghprbPullId}'
     sh 'ansible-playbook /home/pocteo/takoua/deployment-of-nodejs-app/playbookapp.yaml --extra-vars="PULL_REQUEST_ID=${ghprbPullId} INGRESS=${INGRESS}"'
