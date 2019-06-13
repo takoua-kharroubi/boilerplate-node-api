@@ -6,9 +6,12 @@ node('ci-docker-slave') {
     sh 'docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} .'
     sh 'docker push pocteo/boilerplate-node-api:pr-${ghprbPullId}'
     
-    def parts = [31000, '${ghprbPullId}']
-    def INGRESS = parts.sum()
-      
+    def PRJ_PORT = 31000
+    def PULL_REQUEST_ID = '${ghprbPullId}'
+
+    def INGRESS = [PRJ_PORT, PULL_REQUEST_ID].sum()
+    
+    sh 'echo ${PULL_REQUEST_ID}'
     sh 'echo ${INGRESS}'
     
     sh 'export PULL_REQUEST_ID=${ghprbPullId}'
