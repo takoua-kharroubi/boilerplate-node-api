@@ -2,7 +2,7 @@
 
 import groovy.transform.Field
 
-@Field def PULL_REQUEST_ID = '${ghprbPullId}' as Integer
+@Field def PULL_REQUEST_ID = '${ghprbPullId}' as String
 @Field def INGRESS = 31901 as Integer
 
 node('ci-docker-slave') {
