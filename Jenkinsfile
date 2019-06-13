@@ -1,6 +1,5 @@
-def INGRESS = 31000 + Integer.parseInt(${ghprbPullId})
-
 node('ci-docker-slave') {
+  def INGRESS = 31000 + Integer.parseInt(${ghprbPullId})
   stage('docker push') {
     sh 'docker version'
     git(url: 'https://github.com/pocteo/boilerplate-node-api.git', branch: '${ghprbSourceBranch}')
