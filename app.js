@@ -7,7 +7,7 @@ const app = new Koa()
 app.use(logger())
 
 app.use(async ctx => {
-  ctx.body = `صباح الخير - env on-demand ${ctx.query.name}`
+  ctx.body = `Buongiorno - env on-demand ${ctx.query.name}`
 })
 
 app.listen(3000)
