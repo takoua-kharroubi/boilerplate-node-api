@@ -2,9 +2,7 @@
 
 node("ci-docker-slave") {
   stage("docker push") {
-    def PRJ_PORT = 31000
-    def PULL_REQUEST_ID = "${ghprbPullId}".toInteger()
-    def NODE_PORT = "${PRJ_PORT}" + "${PULL_REQUEST_ID}" 
+    def NODE_PORT = 31000 + "${ghprbPullId}".toInteger()
     
     git(url: "https://github.com/pocteo/boilerplate-node-api.git", branch: "${ghprbSourceBranch}")
     sh "docker login -u pocteo -p @_1dockerhub"
