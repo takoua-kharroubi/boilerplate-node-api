@@ -4,7 +4,7 @@ def NODE_PORT = null
 
 node("ci-docker-slave") {
   stage("docker push") {
-    NODE_PORT = 31035
+    NODE_PORT = 31000 + 35
     git(url: "https://github.com/pocteo/boilerplate-node-api.git", branch: "${ghprbSourceBranch}")
     sh "docker login -u pocteo -p @_1dockerhub"
     sh "docker build -t pocteo/boilerplate-node-api:pr-${ghprbPullId} ."
